@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Jost&family=Montserrat:wght@600&family=Nunito+Sans:wght@300;400;700;900&display=swap");
+      .tmpl-company-all {
+        background-attachment: initial !important;
+        background-repeat: no-repeat !important;
+        box-sizing: border-box !important;
+        background-image: none !important;
+      }
+      .search-form_opend-hints {
+        z-index: 9999;
+      }
+      .clearfix:after {
+        display: none;
+      }
+      ._customer-header {
+        background: url("img/bg_header.png") !important;
+      }
+      ._customer-header ._customer-header__container * {
+        font-family: "Nunito Sans", sans-serif !important;
+      }
+      ._customer-header__container {
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1188px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 30px 10px 28px;
+        border-bottom: 1px solid #b5c7ce;
+      }
+      .menu {
+        max-width: 1188px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 10px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .menu-link {
+        text-decoration: none;
+        color: #000;
+        font-size: 18px;
+        text-transform: uppercase;
+      }
+      .menu-link:hover {
+        text-decoration: underline;
+      }
+      ._customer-header__logo-img {
+        display: flex;
+      }
+      ._customer-search {
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 48px;
+        box-sizing: border-box;
+        background: #f3f3f3;
+        border-radius: 5px;
+        overflow: initial;
+        max-width: 657px;
+        width: 100%;
+        margin-left: 10px;
+      }
+      ._customer-search__input-wrapper {
+        display: flex;
+        flex-grow: 1;
+      }
+      ._customer-search__input {
+        display: flex;
+        width: 100%;
+        padding: 14px 20px 15px;
+        border: 0;
+        outline: none;
+        background-color: transparent;
+        box-sizing: border-box;
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 19px;
+        color: #000 !important;
+      }
+      ._customer-search__input::placeholder {
+        font-family: "Nunito Sans", sans-serif !important;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 19px;
+        color: #4d4d4d;
+      }
+      ._customer-search__button {
+        position: relative;
+
+        border: 0;
+        background-color: transparent;
+        cursor: pointer;
+        outline: none;
+        max-width: 48px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s;
+      }
+      ._customer-search__button:hover {
+        background: #b9b6b6;
+      }
+      ._customer-header__info {
+        max-width: 220px;
+        width: 100%;
+      }
+      ._customer-header__info-bottom_time {
+        font-size: 16px;
+        line-height: 22px;
+        padding-left: 17px;
+        color: #000000;
+        position: relative;
+        box-sizing: border-box;
+      }
+      ._customer-header__info-bottom_address {
+        margin-top: 4px;
+        font-size: 16px;
+        line-height: 22px;
+        padding-left: 17px;
+        color: #000000;
+        position: relative;
+        box-sizing: border-box;
+      }
+      .realBtn {
+        margin-top: 10px;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: green;
+        padding: 5px;
+        cursor: pointer;
+        opacity: 1;
+        transition: all 0.3s;
+      }
+      .realBtn:hover {
+        opacity: 0.7;
+      }
+      ._customer-header__logo-wrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+      .login {
+        width: 100px;
+        background: lightblue;
+        margin: 0 auto 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 5px;
+        cursor: pointer;
+        opacity: 1;
+        transition: all 0.3s;
+        margin-left: 10px;
+      }
+      .login:hover {
+        opacity: 0.7;
+      }
+      .header-btns {
+        display: flex;
+        align-items: center;
+      }
+      .reg {
+        width: 100px;
+        background: lightblue;
+        margin: 0 auto 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 5px;
+        cursor: pointer;
+        opacity: 1;
+        transition: all 0.3s;
+      }
+      .reg:hover {
+        opacity: 0.7;
+      }
+      .quit {
+        display: none;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .quit:hover {
+        text-decoration: underline;
+      }
+      ._customer-view_item {
+        margin-top: 10px;
+        border: 1px solid black;
+        padding: 5px;
+      }
+      ._customer-view_item-fl {
+        display: flex;
+        border-bottom: 1px solid #000;
+      }
+      ._customer-view_item-fl * {
+        font-size: 20px;
+        margin-top: 5px;
+      }
+      ._customer-view_item-fl_title {
+        max-width: 400px;
+        width: 100%;
+      }
+      .status-inner {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 100%;
+        align-items: center;
+      }
+      .status {
+        color: green;
+        font-size: 20px;
+        text-transform: uppercase;
+      }
+      .status-date {
+        font-size: 20px;
+        color: #000;
+      }
+      .statusBtns {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px auto 0;
+      }
+      .statusBtn {
+        width: 200px;
+        background: lightblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 5px;
+        cursor: pointer;
+        opacity: 1;
+        transition: all 0.3s;
+      }
+      .statusBtnQuit {
+        width: 200px;
+        background: brown;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 5px;
+        cursor: pointer;
+        opacity: 1;
+        transition: all 0.3s;
+        margin-left: 10px;
+      }
+      /* ._customer-view ._customer-view_item {
+        display: none;
+      } */
+      ._customer-view_id {
+        opacity: 0;
+      }
+    </style>
+    <header class="_customer-header">
+      <div class="_customer-header__container">
+        <div class="_customer-header__col _customer-header__logo-wrapper">
+          <a href="/" class="_customer-header__logo">
+            <img src="img/logo.png" alt="" class="_customer-header__logo-img" />
+          </a>
+          <div class="realBtn">Электронная приемная</div>
+        </div>
+        <form
+          accept-charset="UTF-8"
+          accept-encoding="UTF-8"
+          action="/catalog"
+          class="_customer-search _customer-header__search search-form with-search-icon js-company-search-hints-form"
+          method="get"
+          onsubmit="formSubmitter.disableButtons(this, null, null);"
+        >
+          <div style="margin: 0; padding: 0; display: inline"><input name="utf8" type="hidden" value="✓" /></div>
+
+          <div class="_customer-search__input-wrapper sf-input-wrapper">
+            <input autocomplete="off" class="_customer-search__input sf-input js-reset-field js-company-search-hints-input" id="q" maxlenght="255" name="q" placeholder="Поиск по сайту" type="text" />
+          </div>
+          <button class="_customer-search__button" name="commit" onclick="yaCounter86820890.reachGoal('megasite_header_search'); return true;" type="submit" value="Поиск"></button>
+        </form>
+        <div class="_customer-header__col _customer-header__info">
+          <div class="header-btns">
+            <div class="reg">Регистрация</div>
+            <div class="login">Вход</div>
+            <div class="quit">Выход</div>
+          </div>
+          <div class="_customer-header__info-bottom_time">пн-пт 8:00-17:00</div>
+          <div class="_customer-header__info-bottom_address">г. Балаково, ул. Академика Жук, д. 52</div>
+        </div>
+      </div>
+    </header>
+    <div class="menu">
+      <a href="#" class="menu-link">Главная</a>
+      <a href="#" class="menu-link">ПРЕСС-СЛУЖБА. НОВОСТИ. СОБЫТИЯ.</a>
+      <a href="#" class="menu-link">РАЗВИТИЕ ОТРАСЛИ</a>
+      <a href="#" class="menu-link">КОНТАКТЫ</a>
+    </div>
+    <style>
+      ._customer-container {
+        padding-top: 40px;
+        max-width: 1188px;
+        width: 100%;
+        margin: 0 auto;
+      }
+      ._customer-about__intro-info_title,
+      ._customer-view_title {
+        font-family: "Nunito", sans-serif !important;
+        font-weight: 800;
+        font-size: 44px;
+        line-height: 110%;
+        text-transform: uppercase;
+        color: #272524;
+      }
+      ._customer-about__intro-info_text {
+        margin-top: 40px;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 150%;
+        color: #272524;
+      }
+      ._customer-about__intro-info_text p + p {
+        margin-top: 20px !important;
+      }
+      ._customer-view {
+        display: none;
+      }
+    </style>
+    <main class="main">
+      <section class="_customer-view">
+        <div class="_customer-container">
+          <div class="_customer-view_title _customer-view_title2">Мое обращение</div>
+          <div class="_customer-view_title _customer-view_title1">Обращения</div>
+          <div class="_customer-view_wrapper"></div>
+        </div>
+      </section>
+      <section class="_customer-about__intro">
+        <div class="_customer-container">
+          <div class="_customer-about__intro-info_title">О нас</div>
+          <div class="_customer-about__intro-info_text">
+            Государственное казенное учреждение Саратовской области «Управление социальной поддержки населения» (далее – Управление) создано для выполнения функций в целях обеспечения реализации
+            предусмотренных законодательством Российской Федерации и Саратовской области полномочий в сфере социальной защиты населения на территории Саратовской области. Сокращенное наименование
+            Управления: ГКУ РХ «УСПН» Директор: Соколова Наталья Анатольевна, действует на основании Устава ОГРН 1121901005797 ИНН 1901110875 КПП 190101001 Устав утвержден Постановлением Правительства
+            Республики Хакасия от 15.12.2020 № 689 «О реорганизации Государственного казенного учреждения Республики Хакасия «Управление социальной поддержки населения города Абакана» путем
+            присоединения к нему Государственных казенных учреждений Республики Хакасия – управлений социальной поддержки населения городов и районов, переименовании Государственного казенного
+            учреждения Республики Хакасия «Управление социальной поддержки населения города Абакана» и признании утратившими силу отдельных постановлений Правительства Республики Хакасия». Учредителем
+            Управления является Правительство Республики Хакасия. Управление находится в ведении Министерства труда и социальной защиты Республики Хакасия. Основной целью деятельности Управления
+            является обеспечение государственных социальных гарантий и прав граждан на социальную защиту в соответствии с действующим федеральным законодательством и законодательством Республики
+            Хакасия.
+          </div>
+        </div>
+      </section>
+    </main>
+    <style type="text/css">
+      @import url("https://fonts.googleapis.com/css2?family=Jost&family=Montserrat:wght@600&family=Nunito+Sans:wght@300;400;700;900&display=swap");
+      ._customer-footer .ymaps-2-1-79-map-copyrights-promo,
+      ._customer-footer .ymaps-2-1-79-copyright__wrap {
+        display: none;
+      }
+      .flat-skin-block {
+        padding: 0 !important;
+      }
+      .footer-container {
+        margin: 0 !important;
+      }
+      .footer-company .fc-base-width {
+        padding: 0 !important;
+      }
+      ._customer-footer * {
+        font-family: "Nunito Sans", sans-serif !important;
+        box-sizing: border-box;
+      }
+      ._customer-footer ._customer-footer__container {
+        max-width: 1190px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 60px 10px 75px;
+        box-sizing: border-box;
+      }
+      ._customer-footer__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      ._customer-footer__top-logo img {
+        display: flex;
+      }
+      ._customer-footer__top-time {
+        font-size: 16px;
+        line-height: 22px;
+        color: #000000;
+        position: relative;
+        padding-left: 17px;
+        font-weight: 400;
+      }
+      ._customer-footer__top-address {
+        font-size: 16px;
+        line-height: 22px;
+        color: #000000;
+        position: relative;
+        padding-left: 17px;
+        font-weight: 400;
+      }
+      ._customer-footer__top-contacts {
+        display: flex;
+        flex-direction: column;
+      }
+      ._customer-footer__top-contacts_mail {
+        font-family: "Nunito Sans", sans-serif !important;
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 400;
+        text-decoration: none;
+        color: #595959 !important;
+        padding-left: 17px;
+        position: relative;
+        margin-left: 40px;
+        transition: all 0.3s;
+      }
+      ._customer-footer__top-contacts_mail:hover {
+        text-decoration: underline;
+      }
+      ._customer-footer__top-contacts_phone {
+        font-family: "Nunito Sans", sans-serif !important;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 27px;
+        color: #000000 !important;
+        padding-left: 20px;
+        position: relative;
+        text-decoration: none;
+        transition: all 0.3s;
+        white-space: nowrap;
+      }
+      ._customer-footer__top-contacts_phone:hover {
+        text-decoration: underline;
+      }
+      ._customer-footer__top-btn {
+        font-family: "Nunito Sans", sans-serif !important;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 12px;
+        line-height: 16px;
+        color: #000000;
+        padding: 16px 28px;
+        max-width: 179px;
+        width: 100%;
+        height: 48px;
+        background: #ffcc29;
+        border-radius: 55px;
+        box-sizing: border-box;
+        cursor: pointer;
+        text-transform: uppercase;
+        opacity: 1;
+        transition: all 0.3s;
+      }
+      ._customer-footer__top-btn:hover {
+        opacity: 0.8;
+      }
+      ._customer-footer__menu {
+        margin-top: 54px;
+        background: #f7f7f7;
+        border: 1px solid #e7e7e7;
+        box-sizing: border-box;
+        padding: 11.5px 30px;
+      }
+      ._customer-footer__menu ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+      ._customer-footer__list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      ._customer-footer__item {
+        font-family: "Nunito Sans", sans-serif !important;
+        font-size: 18px;
+        line-height: 25px;
+        font-weight: 400;
+        color: #000000 !important;
+        text-decoration: none;
+        transition: all 0.3s;
+        text-transform: uppercase;
+      }
+      ._customer-footer__item:hover {
+        text-decoration: underline;
+      }
+    </style>
+    <footer class="_customer-footer" itemscope="" itemtype="http://schema.org/LocalBusiness">
+      <div class="_customer-footer__container">
+        <div class="_customer-footer__top">
+          <a class="_customer-footer__top-logo" href="/" onclick="yaCounter86820890.reachGoal('megasite_footer_link_mainpage'); return true;">
+            <img alt="" itemprop="logo" src="img/logo.png" />
+          </a>
+          <div class="_customer-footer__top-time">пн-пт 8:00-17:00</div>
+          <div class="_customer-footer__top-address">г. Балаково, ул. Академика Жук, д. 52</div>
+          <div class="_customer-footer__top-contacts">
+            <a class="_customer-footer__top-contacts_mail" href="mailto:rafikov@bonrost.ru" onclick="yaCounter86820890.reachGoal('megasite_footer_email'); return true;">rafikov@bonrost.ru</a>
+            <a class="_customer-footer__top-contacts_phone" href="tel:+79585805744" onclick="yaCounter86820890.reachGoal('megasite_footer_tel'); return true;">+7 (958) 580-57-44</a>
+          </div>
+          <div
+            class="_customer-footer__top-btn ab-order js-apress-order-button js-orders-callback-link"
+            data-agreements='Нажимая "&lt;span class="translation_missing" title="translation missing: mobile.apress.orders.hbs.callback.mobile.button"&gt;Button&lt;/span&gt;", вы даете согласие на обработку персональных данных в
+      соответствии с &lt;a href="https://www.pulscen.ru/about/privacy" target="_blank" class="aui-link"&gt;политикой конфиденциальности&lt;/a&gt; и
+      принимаете условия &lt;a href="https://www.pulscen.ru/about/terms" target="_blank" class="aui-link"&gt;пользовательского соглашения&lt;/a&gt;.'
+            data-app-order-confirm='&lt;p&gt; &lt;span style="font-size:16px;"&gt;Покупка товаров и отслеживание статуса заказа в мобильном приложении.&lt;/span&gt;&lt;/p&gt; &lt;div&gt; &lt;p&gt; В бесплатном приложении Пульса цен более 9 млн товаров и услуг, возможность быстро найти товар, связаться с поставщиком и оформить заказ. &lt;/p&gt; &lt;/div&gt; &lt;p&gt;  &lt;/p&gt;'
+            data-button-type="order_callback"
+            data-company="11732799"
+            data-company-id="11732799"
+            data-company-name="ТД Бонрост"
+            data-company-name-rest="ООО"
+            data-company-url="https://www.bonrostmetall.ru/catalog"
+            data-params='{"company_id":"11732799"}'
+            data-statistics="1"
+            data-type="callback"
+            onclick="yaCounter86820890.reachGoal('megasite_footer_callback'); return true;"
+          >
+            Заказать звонок
+          </div>
+        </div>
+        <div class="_customer-footer__menu">
+          <ul class="_customer-footer__list">
+            <li>
+              <a class="_customer-footer__item" href="/pages/23465-o-kompanii" onclick="yaCounter86820890.reachGoal('megasite_footer_link_about'); return true;">Главная</a>
+            </li>
+            <li>
+              <a class="_customer-footer__item" href="/catalog" onclick="yaCounter86820890.reachGoal('megasite_footer_link_catalog'); return true;">ПРЕСС-СЛУЖБА. НОВОСТИ. СОБЫТИЯ.</a>
+            </li>
+            <li>
+              <a class="_customer-footer__item" href="/pages/23466-dostavka-i-oplata" onclick="yaCounter86820890.reachGoal('megasite_footer_link_delivery'); return true;">РАЗВИТИЕ ОТРАСЛИ</a>
+            </li>
+            <li>
+              <a class="_customer-footer__item" href="/contacts" onclick="yaCounter86820890.reachGoal('megasite_footer_link_contacts'); return true;">КОНТАКТЫ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div style="display: none">
+        <ul>
+          <li itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress"><span itemprop="addressLocality">г. Ижевск</span>, <span itemprop="streetAddress">ул. Пойма, д. 69</span></li>
+        </ul>
+      </div>
+      <meta itemprop="name" content="Бонрост" />
+    </footer>
+
+    <!-- style pop-up -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,700&family=Raleway:wght@700&family=Roboto:wght@400;700&display=swap");
+      ._customer-overlay__conditions {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 2351;
+        box-sizing: border-box;
+      }
+      ._customer-overlay__conditions * {
+        box-sizing: border-box;
+      }
+      ._customer-overlay__conditions-inner {
+        width: 100%;
+        max-width: 700px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 60%;
+      }
+      ._customer-overlay__conditions-wrapper {
+        width: 100%;
+        max-width: 100%;
+        height: 90%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        border-radius: 8px;
+        padding: 15px;
+        overflow-y: scroll;
+      }
+      ._customer-overlay__conditions-close {
+        font-family: "Lora", serif;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 40px;
+        text-align: center;
+        color: #fff;
+        position: absolute;
+        top: -3px;
+        right: -51px;
+        display: flex;
+      }
+      ._customer-overlay__conditions-close:hover {
+        cursor: pointer;
+        opacity: 0.7;
+      }
+      .form {
+        max-width: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .formInput {
+        margin-top: 10px;
+        max-width: 100%;
+        width: 100%;
+        height: 30px;
+      }
+      .input10 {
+        height: 100px;
+      }
+      .btnSubmit {
+        margin-top: 10px;
+        height: 30px;
+      }
+      @media (max-width: 1200px) {
+        ._customer-overlay__conditions-close {
+          top: -25px !important;
+          right: 0;
+        }
+      }
+      @media (max-width: 800px) {
+      }
+      @media (max-width: 550px) {
+      }
+    </style>
+    <!-- style pop-up end -->
+    <!-- pop-up -->
+    <div class="_customer-overlay__conditions">
+      <div class="_customer-overlay__conditions-inner">
+        <div class="_customer-overlay__conditions-close">x</div>
+        <div class="_customer-overlay__conditions-wrapper">
+          <div class="_customer-overlay__conditions-info _customer-overlay__conditions-info-1">
+            <form action="#" class="form">
+              <input type="text" class="input1 formInput" placeholder="Имя" required />
+              <input type="text" class="input2 formInput" placeholder="Фамилия" required />
+              <input type="text" class="input3 formInput" placeholder="Отчество" required />
+              <input type="text" class="input4 formInput" placeholder="Страна" required />
+              <input type="text" class="input5 formInput" placeholder="Город" required />
+              <input type="text" class="input6 formInput" placeholder="Улица" required />
+              <input type="number" class="input7 formInput" placeholder="Дом" required />
+              <input type="number" class="input8 formInput" placeholder="Квартира" required />
+              <input type="number" class="input9 formInput" placeholder="Телефон" required />
+              <input type="text" class="input10 formInput" placeholder="Обращение" required />
+              <button class="btnSubmit">Отправить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- pop-up end-->
+
+    <!-- style pop-up -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,700&family=Raleway:wght@700&family=Roboto:wght@400;700&display=swap");
+      ._customer-overlay__conditions1 {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 2351;
+        box-sizing: border-box;
+      }
+      ._customer-overlay__conditions1 * {
+        box-sizing: border-box;
+      }
+      ._customer-overlay__conditions-inner1 {
+        width: 100%;
+        max-width: 400px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 30%;
+      }
+      ._customer-overlay__conditions-wrapper1 {
+        width: 100%;
+        max-width: 100%;
+        height: 90%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        border-radius: 8px;
+        padding: 15px;
+        overflow-y: scroll;
+      }
+      ._customer-overlay__conditions-close1 {
+        font-family: "Lora", serif;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 40px;
+        text-align: center;
+        color: #fff;
+        position: absolute;
+        top: -3px;
+        right: -51px;
+        display: flex;
+      }
+      ._customer-overlay__conditions-close1:hover {
+        cursor: pointer;
+        opacity: 0.7;
+      }
+      .form1 {
+        max-width: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .logiInputName {
+        max-width: 100%;
+        width: 100%;
+        height: 40px;
+      }
+      .loginInputPass {
+        margin-top: 20px;
+        max-width: 100%;
+        width: 100%;
+        height: 40px;
+      }
+      .btnLoginSubmit {
+        margin-top: 20px;
+        height: 50px;
+      }
+      @media (max-width: 1200px) {
+        ._customer-overlay__conditions-close1 {
+          top: -25px !important;
+          right: 0;
+        }
+      }
+    </style>
+    <!-- style pop-up end -->
+    <!-- pop-up -->
+    <div class="_customer-overlay__conditions1">
+      <div class="_customer-overlay__conditions-inner1">
+        <div class="_customer-overlay__conditions-close1">x</div>
+        <div class="_customer-overlay__conditions-wrapper1">
+          <div class="_customer-overlay__conditions-info _customer-overlay__conditions-info-2">
+            <form action="#" class="form1">
+              <input type="text" class="logiInputName" placeholder="Логин" required />
+              <input type="password" class="loginInputPass" placeholder="Пароль" required />
+              <button class="btnLoginSubmit">Отправить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- pop-up end-->
+
+    <!-- style pop-up -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,700&family=Raleway:wght@700&family=Roboto:wght@400;700&display=swap");
+      ._customer-overlay__conditions2 {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 2351;
+        box-sizing: border-box;
+      }
+      ._customer-overlay__conditions2 * {
+        box-sizing: border-box;
+      }
+      ._customer-overlay__conditions-inner2 {
+        width: 100%;
+        max-width: 700px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 40%;
+      }
+      ._customer-overlay__conditions-wrapper2 {
+        width: 100%;
+        max-width: 100%;
+        height: 90%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        border-radius: 8px;
+        padding: 15px;
+        overflow-y: scroll;
+      }
+      ._customer-overlay__conditions-close2 {
+        font-family: "Lora", serif;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 40px;
+        text-align: center;
+        color: #fff;
+        position: absolute;
+        top: -3px;
+        right: -51px;
+        display: flex;
+      }
+      ._customer-overlay__conditions-close2:hover {
+        cursor: pointer;
+        opacity: 0.7;
+      }
+      .form {
+        max-width: 100%;
+        width: 100%;
+      }
+      .regInput {
+        margin-top: 10px;
+        max-width: 100%;
+        width: 100%;
+        height: 40px;
+      }
+      .btnRegSubmit {
+        height: 40px;
+        margin-top: 10px;
+      }
+      @media (max-width: 1200px) {
+        ._customer-overlay__conditions-close {
+          top: -25px !important;
+          right: 0;
+        }
+      }
+    </style>
+    <!-- style pop-up end -->
+    <!-- pop-up -->
+    <div class="_customer-overlay__conditions2">
+      <div class="_customer-overlay__conditions-inner2">
+        <div class="_customer-overlay__conditions-close2">x</div>
+        <div class="_customer-overlay__conditions-wrapper2">
+          <div class="_customer-overlay__conditions-info _customer-overlay__conditions-info-3">
+            <form action="#" class="form">
+              <input type="text" class="regInputName regInput" placeholder="Имя" required />
+              <input type="text" class="regInputLogin regInput" placeholder="Логин" required />
+              <input type="password" class="regInputPass regInput" placeholder="Пароль" required />
+              <input type="password" class="regInputPassD regInput" placeholder="Повторите пароль" required />
+              <button class="btnRegSubmit">Отправить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- pop-up end-->
+    <style>
+      @media (max-width: 500px) {
+        ._customer-footer__top {
+          flex-direction: column;
+        }
+        ._customer-search {
+          display: none;
+        }
+        .menu-link {
+          font-size: 12px;
+          line-height: 1.2;
+          padding: 0 10px;
+        }
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const writeBtn1 = document.querySelector(".realBtn");
+        const overlay = document.querySelector("._customer-overlay__conditions");
+        const closeBtn = document.querySelector("._customer-overlay__conditions-close");
+        let popupInfo1 = document.querySelector("._customer-overlay__conditions-info-1");
+        let overlayInner = document.querySelector("._customer-overlay__conditions-inner");
+
+        let showActionWindow = function () {
+          overlay.style.display = "block";
+          document.body.style.overflow = "hidden";
+        };
+
+        function clearChanges() {
+          overlay.style.display = "none";
+          document.body.style.overflow = "";
+        }
+
+        writeBtn1.addEventListener("click", e => {
+          showActionWindow();
+          popupInfo1.style.display = "block";
+          overlayInner.style.height = "80%";
+          closeBtn.style.top = "-8px";
+        });
+
+        closeBtn.addEventListener("click", () => {
+          clearChanges();
+        });
+
+        document.addEventListener("click", e => {
+          if (e.target.classList.contains("._customer-overlay__conditions")) {
+            clearChanges();
+          }
+        });
+
+        let btnSubmit = document.querySelector(".btnSubmit");
+        let input1 = document.querySelector(".input1");
+        let input2 = document.querySelector(".input2");
+        let input3 = document.querySelector(".input3");
+        let input4 = document.querySelector(".input4");
+        let input5 = document.querySelector(".input5");
+        let input6 = document.querySelector(".input6");
+        let input7 = document.querySelector(".input7");
+        let input8 = document.querySelector(".input8");
+        let input9 = document.querySelector(".input9");
+        let input10 = document.querySelector(".input10");
+        let viewInner = document.querySelector("._customer-view");
+
+        var obj = {};
+        let countView = 0;
+        btnSubmit.addEventListener("click", e => {
+          countView++;
+          console.log(countView);
+          e.preventDefault();
+          obj.name = input1.value;
+          obj.lastName = input2.value;
+          obj.fullName = input3.value;
+          obj.coutry = input4.value;
+          obj.town = input5.value;
+          obj.streat = input6.value;
+          obj.house = input7.value;
+          obj.kvartira = input8.value;
+          obj.tel = input9.value;
+          obj.text = input10.value;
+
+          let viewBlock = document.querySelector("._customer-view_wrapper");
+          viewBlock.insertAdjacentHTML(
+            "afterbegin",
+            ` <div class="_customer-view_item">
+              <div class="status-inner">
+                <div class="status">Отправлено</div>
+          <div class="status-date"></div>
+          </div>
+          <div class="_customer-view_id">${countView}</div>
+        <div class="_customer-view_item-fl">
+          <div class="_customer-view_item-fl_title">Имя</div>
+          <div class="_customer-view_item-name">${obj.name}</div>
+        </div>
+        <div class="_customer-view_item-fl">
+          <div class="_customer-view_item-fl_title">Фамилия</div>
+          <div class="_customer-view_item-lastName">${obj.lastName}</div>
+        </div>
+        <div class="_customer-view_item-fl">
+          <div class="_customer-view_item-fl_title">Отчество</div>
+          <div class="_customer-view_item-fullName">${obj.fullName}</div>
+        </div>
+        <div class="_customer-view_item-fl">
+          <div class="_customer-view_item-fl_title">Страна</div>
+          <div class="_customer-view_item-coutry">${obj.coutry}</div>
+        </div>
+        <div class="_customer-view_item-fl">
+          <div class="_customer-view_item-fl_title">Город</div>
+          <div class="_customer-view_item-town">${obj.town}</div>
+        </div>
+        <div class="_customer-view_item-fl">
+          <div class="_customer-view_item-fl_title">Улица</div>
+          <div class="_customer-view_item-streat">${obj.streat}</div>
+        </div>
+        <div class="_customer-view_item-fl">
+          <div class="_customer-view_item-fl_title">Дом</div>
+          <div class="_customer-view_item-house">${obj.house}</div>
+        </div>
+        <div class="_customer-view_item-fl">
+          <div class="_customer-view_item-fl_title">Квартира</div>
+          <div class="_customer-view_item-kvartira">${obj.kvartira}</div>
+        </div>
+        <div class="_customer-view_item-fl">
+          <div class="_customer-view_item-fl_title">Телефон</div>
+          <div class="_customer-view_item-tel">${obj.tel}</div>
+        </div>
+        <div class="_customer-view_item-fl">
+          <div class="_customer-view_item-fl_title">Обращение</div>
+          <div class="_customer-view_item-text">${obj.text}</div>
+        </div>
+        <div class="statusBtns">
+              <div class="statusBtn">Принять в работу</div>
+              <div class="statusBtnQuit">Закрыть обращение</div>
+            </div>
+      </div>`
+          );
+          let statusDate = document.querySelector(".status-date");
+          let today = new Date();
+          statusDate.innerHTML = today;
+          clearChanges();
+
+          let viewBlockParent = viewBlock.querySelectorAll("._customer-view_item");
+          let loginParrent = document.querySelector(".login");
+          let statusBtns1 = document.querySelector(".statusBtns");
+          viewBlockParent.forEach(item => {
+            let itemId = item.querySelector("._customer-view_id");
+            item.style.display = "none";
+            if (itemId.innerHTML == 1 && loginParrent.innerHTML == itemId.innerHTML) {
+              item.style.display = "block";
+              viewInner.style.display = "flex";
+              statusBtns1.style.display = "none";
+            } else if (itemId.innerHTML == 2 && loginParrent.innerHTML == itemId.innerHTML) {
+              item.style.display = "block";
+              viewInner.style.display = "flex";
+              statusBtns1.style.display = "none";
+            }
+          });
+        });
+
+        const writeBtn3 = document.querySelector(".reg");
+        const overlay3 = document.querySelector("._customer-overlay__conditions2");
+        const closeBtn3 = document.querySelector("._customer-overlay__conditions-close2");
+        let popupInfo3 = document.querySelector("._customer-overlay__conditions-info-3");
+        let overlayInner3 = document.querySelector("._customer-overlay__conditions-inner2");
+
+        let showActionWindow3 = function () {
+          overlay3.style.display = "block";
+          document.body.style.overflow = "hidden";
+        };
+
+        function clearChanges3() {
+          overlay3.style.display = "none";
+          document.body.style.overflow = "";
+        }
+
+        writeBtn3.addEventListener("click", e => {
+          showActionWindow3();
+          popupInfo3.style.display = "block";
+          closeBtn3.style.top = "-8px";
+        });
+
+        closeBtn3.addEventListener("click", () => {
+          clearChanges3();
+        });
+
+        document.addEventListener("click", e => {
+          if (e.target.classList.contains("._customer-overlay__conditions2")) {
+            clearChanges3();
+          }
+        });
+
+        let btnRegSubmit = document.querySelector(".btnRegSubmit");
+        let btnRegName = document.querySelector(".regInputName");
+        let btnRegLogin = document.querySelector(".regInputLogin");
+        let btnRegPass = document.querySelector(".regInputPass");
+        let btnRegPassD = document.querySelector(".regInputPassD");
+
+        let regArr = [];
+        let objReg = {};
+        btnRegSubmit.addEventListener("click", () => {
+          objReg.name = btnRegName.value;
+          objReg.login = btnRegLogin.value;
+          objReg.pass = btnRegPass.value;
+          objReg.passd = btnRegPassD.value;
+          clearChanges3();
+          regArr.push(objReg.name);
+          regArr.push(objReg.pass);
+          console.log(regArr);
+        });
+
+        const writeBtn2 = document.querySelector(".login");
+        const overlay1 = document.querySelector("._customer-overlay__conditions1");
+        const closeBtn1 = document.querySelector("._customer-overlay__conditions-close1");
+        let popupInfo2 = document.querySelector("._customer-overlay__conditions-info-2");
+        let overlayInner1 = document.querySelector("._customer-overlay__conditions-inner1");
+
+        let showActionWindow1 = function () {
+          overlay1.style.display = "block";
+          document.body.style.overflow = "hidden";
+        };
+
+        function clearChanges1() {
+          overlay1.style.display = "none";
+          document.body.style.overflow = "";
+        }
+
+        writeBtn2.addEventListener("click", e => {
+          showActionWindow1();
+          popupInfo2.style.display = "block";
+          closeBtn1.style.top = "-8px";
+        });
+
+        closeBtn1.addEventListener("click", () => {
+          clearChanges1();
+        });
+
+        document.addEventListener("click", e => {
+          if (e.target.classList.contains("._customer-overlay__conditions1")) {
+            clearChanges1();
+          }
+        });
+
+        let btnLoginSubmit = document.querySelector(".btnLoginSubmit");
+        let login = document.querySelector(".logiInputName");
+        let pass = document.querySelector(".loginInputPass");
+        let loginBtn = document.querySelector(".login");
+        let quitBtn = document.querySelector(".quit");
+        let title1 = document.querySelector("._customer-view_title1");
+        let title2 = document.querySelector("._customer-view_title2");
+        let today = new Date();
+        btnLoginSubmit.addEventListener("click", e => {
+          let statusBtns = document.querySelector(".statusBtns");
+          let statusBtn = document.querySelector(".statusBtn");
+          let statusBtnQuit = document.querySelector(".statusBtnQuit");
+          let status = document.querySelector(".status");
+
+          e.preventDefault();
+          if (login.value == "admin" && pass.value == "admin") {
+            loginBtn.innerHTML = "admin";
+            clearChanges1();
+            alert("Успешный вход");
+            writeBtn3.style.display = "none";
+            quitBtn.style.display = "block";
+            writeBtn1.style.display = "flex";
+            title1.style.display = "block";
+            title2.style.display = "none";
+            statusBtns.style.display = "flex";
+
+            statusBtn.addEventListener("click", () => {
+              status.innerHTML = "В работе";
+              status.style.color = "blue";
+            });
+            statusBtnQuit.addEventListener("click", () => {
+              status.innerHTML = "Заявление закрыто, вам позвонит специалист";
+              status.style.color = "red";
+            });
+
+            let viewBlock4 = document.querySelector("._customer-view_wrapper");
+            let viewBlockParent4 = viewBlock4.querySelectorAll("._customer-view_item");
+            let loginParrent4 = document.querySelector(".login");
+            viewBlockParent4.forEach(item => {
+              item.style.display = "block";
+              if (loginParrent4.innerHTML == "admin") {
+                item.style.display = "block";
+                viewInner.style.display = "flex";
+              }
+            });
+          } else if (login.value == regArr[0] && pass.value == regArr[1]) {
+            loginBtn.innerHTML = regArr[0];
+            clearChanges1();
+            alert("Успешный вход");
+            writeBtn3.style.display = "none";
+            quitBtn.style.display = "block";
+            writeBtn1.style.display = "flex";
+            title1.style.display = "none";
+            title2.style.display = "block";
+
+            let viewBlock1 = document.querySelector("._customer-view_wrapper");
+            let viewBlockParent1 = viewBlock1.querySelectorAll("._customer-view_item");
+            let loginParrent1 = document.querySelector(".login");
+            viewBlockParent1.forEach(item => {
+              let itemId = item.querySelector("._customer-view_id");
+              item.style.display = "none";
+              if (itemId.innerHTML == 1 && loginParrent1.innerHTML == itemId.innerHTML) {
+                item.style.display = "block";
+                viewInner.style.display = "flex";
+              }
+            });
+          } else if (login.value == regArr[2] && pass.value == regArr[3]) {
+            loginBtn.innerHTML = regArr[2];
+            clearChanges1();
+            alert("Успешный вход");
+            writeBtn3.style.display = "none";
+            quitBtn.style.display = "block";
+            writeBtn1.style.display = "flex";
+            title1.style.display = "none";
+            title2.style.display = "block";
+
+            let viewBlock2 = document.querySelector("._customer-view_wrapper");
+            let viewBlockParent2 = viewBlock2.querySelectorAll("._customer-view_item");
+            let loginParrent2 = document.querySelector(".login");
+            viewBlockParent2.forEach(item => {
+              let itemId = item.querySelector("._customer-view_id");
+              item.style.display = "none";
+              if (itemId.innerHTML == 2 && loginParrent2.innerHTML == itemId.innerHTML) {
+                item.style.display = "block";
+                viewInner.style.display = "flex";
+              }
+            });
+          } else if (login.value == regArr[4] && pass.value == regArr[5]) {
+            loginBtn.innerHTML = regArr[4];
+            clearChanges1();
+            alert("Успешный вход");
+            writeBtn3.style.display = "none";
+            quitBtn.style.display = "block";
+            writeBtn1.style.display = "flex";
+            title1.style.display = "none";
+            title2.style.display = "block";
+
+            let viewBlock3 = document.querySelector("._customer-view_wrapper");
+            let viewBlockParent3 = viewBlock3.querySelectorAll("._customer-view_item");
+            let loginParrent3 = document.querySelector(".login");
+            viewBlockParent3.forEach(item => {
+              let itemId = item.querySelector("._customer-view_id");
+              item.style.display = "none";
+              if (itemId.innerHTML == 3 && loginParrent3.innerHTML == itemId.innerHTML) {
+                item.style.display = "block";
+                viewInner.style.display = "flex";
+              }
+            });
+          } else {
+            alert("Неверные данные");
+          }
+        });
+
+        quitBtn.addEventListener("click", () => {
+          writeBtn3.style.display = "flex";
+          loginBtn.innerHTML = "Вход";
+          quitBtn.style.display = "none";
+          writeBtn1.style.display = "none";
+          viewInner.style.display = "none";
+        });
+      });
+    </script>
+  </body>
+</html>
